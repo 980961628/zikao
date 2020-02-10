@@ -147,20 +147,18 @@
       ```
     2. 求表长
       时间复杂度 O(n)
-
-
       ```
-      int lengthLinkList(LinkList head)
-      {
-        Node *p;
-        p=head;j=0;
-        while(p->next!=NULL)
+        int lengthLinkList(LinkList head)
         {
-          p=p->next
-          j++;
+          Node *p;
+          p=head;j=0;
+          while(p->next!=NULL)
+          {
+            p=p->next
+            j++;
+          }
+          return j;
         }
-        return j;
-      }
 
       ```
     
@@ -168,39 +166,33 @@
       时间复杂度 O(n)
 
     4. 删除结点
-      删除p结点：p->prev->next = p->next
-
+      删除p结点：
+      p = q->next;
+      q->next = p->next;
+      或：
+      p->prev->next = p->next
+      free(p);
     5. 插入结点
       先挂上：p->next = q->next;
       再剪断：q->next = p;
 
-  * 2.1 
-  * 2.1 
+  * 2.3.2 双向链表
+    prior data next
+    特点：
+      p->prior->next = p->next->prior = p;
+    1. 删除（可以颠倒）
+      p->prior->next = p->next
+      p->next->prior = p->prior
+      free(p);
+    2. 插入
+      p结点后面插入t
+        t->prior = p
+        t->next = p->next
+        p->next->prior = t
+        p->next = t
+      
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  * 2.1 
-
+Video04
 
 
 
